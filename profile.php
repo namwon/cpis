@@ -1,6 +1,6 @@
 <link rel="stylesheet" type="text/css" href="assets/plugins/DataTables/datatables.min.css"/>
 
-<h2>ข้อมูลทะเบียนประวัติ</h2>
+<h2>ข้อมูลประวัติส่วนตัว</h2>
 <nav class="mt-5 ">
   <div class="nav nav-tabs" id="nav-tab" role="tablist">
     <a class="nav-item nav-link active" id="nav-tab-1" data-toggle="tab" href="#tab-1" role="tab" aria-controls="tab-1" aria-selected="true">

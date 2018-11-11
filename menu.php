@@ -45,8 +45,8 @@ switch ($inc) {
           ข้อมูลวันลา
           <?php echo $leaveactive; ?>
         </a>
-      </li class="<?php echo $booking; ?>">
-      <li>
+      </li>
+      <li class="<?php echo $booking; ?>">
         <a href="index.php?inc=booking">
           <i class="far fa-calendar-alt"></i>
           การนัดหมาย

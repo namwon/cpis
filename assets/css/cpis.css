@@ -6,11 +6,13 @@
 body {
   overflow-x: hidden;
   font-family: 'Itim', sans-serif;
+  background-color: #F5F5F5;
 }
 
 h1, h2, h3, h4, h5 {
   font-family: 'Kanit', sans-serif;
 }
+
 #topnavbar {
   background-color: #00293C;
 }
@@ -166,6 +168,15 @@ h1, h2, h3, h4, h5 {
       border-bottom: 10px solid transparent;
       border-right: 10px solid #F5F5F5;
   }
+}
+
+#calendar {
+  font-family: 'Itim', sans-serif;
+}
+
+#calendar h2 {
+  font-family: 'Itim', sans-serif;
+  
 }
 
 footer {
