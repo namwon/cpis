@@ -20,7 +20,12 @@ $(function() {
 
   $('#calendar').fullCalendar({
     defaultView: 'month',
-    events: 'https://fullcalendar.io/demo-events.json'
+    events: 'https://fullcalendar.io/demo-events.json',
+    header: {
+      left: 'prev,next',
+      center: 'title',
+      right: 'month,agendaWeek,agendaDay,list'
+    },
   });
 
 });

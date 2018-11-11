@@ -42,14 +42,6 @@
           <td class="text-right">xx,xxx.xx</td>
           <td class="text-center">1 มิ.ย. 2560</td>
         </tr>
-        <tr>
-          <td class="text-center">1 มิ.ย. 2560</td>
-          <td></td>
-          <td class="text-center"></td>
-          <td></td>
-          <td class="text-right"></td>
-          <td class="text-center"></td>
-        </tr>
       </tbody>
     </table>
   </div>
