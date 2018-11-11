@@ -1,3 +1,10 @@
+<?php
+include_once 'inc/function.php';
+$inc = "history";
+if (!empty($_GET['inc'])) {
+  $inc = $_GET['inc'];
+}
+?>
 <!DOCTYPE html>
 <html lang="th">
   <head>
@@ -44,7 +51,7 @@
         <!-- Page Content -->
         <div id="page-content-wrapper">
             <div class="container-fluid">
-                <?php include 'history.php'; ?>
+                <?php include "$inc.php"; ?>
             </div>
         </div>
         <!-- /#page-content-wrapper -->
