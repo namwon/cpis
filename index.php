@@ -1,6 +1,6 @@
 <?php
 include_once 'inc/function.php';
-$inc = "history";
+$inc = "booking";
 if (!empty($_GET['inc'])) {
   $inc = $_GET['inc'];
 } else {

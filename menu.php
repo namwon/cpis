@@ -10,13 +10,13 @@ switch ($inc) {
     $leave = "active open";
     $leaveactive = "<span class='active-page'></span>";
     break;
-  case 'booking':
-    $booking = "active open";
-    $bookingactive = "<span class='active-page'></span>";
-    break;
-  default:
+  case 'history':
     $history = "active open";
     $historyactive = "<span class='active-page'></span>";
+    break;
+  default:
+  $booking = "active open";
+  $bookingactive = "<span class='active-page'></span>";
     break;
 }
 ?>
