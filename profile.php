@@ -15,6 +15,9 @@
     <a class="nav-item nav-link" id="nav-tab-4" data-toggle="tab" href="#tab-4" role="tab" aria-controls="tab-4" aria-selected="false">
       ข้อมูลบุตรธิดา
     </a>
+    <a class="nav-item nav-link" id="nav-tab-5" data-toggle="tab" href="#tab-5" role="tab" aria-controls="tab-5" aria-selected="false">
+      ข้อมูลส่วนตัว
+    </a>
   </div>
 </nav>
 <div class="tab-content border border-top-0 rounded rounded-bottom bg-white" id="nav-tabContent">
@@ -50,14 +53,87 @@
       </tbody>
     </table>
   </div>
-  <div class="tab-pane fade pt-4 container-fluid" id="tab-2" role="tabpanel" aria-labelledby="nav-tab-2">
-    tab 2
+  <div class="tab-pane fade pt-4 container-fluid table-responsive" id="tab-2" role="tabpanel" aria-labelledby="nav-tab-2">
+    <table class="data-table table table-striped table-bordered" style="width:100%">
+      <thead>
+        <tr>
+          <th scope="col">ลำดับ</th>
+          <th scope="col">ชื่อ - สกุล</th>
+          <th scope="col">วันที่เปลี่ยน</th>
+          <th scope="col">วันที่บันทึก</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>นายน้ำวน คนซื่อ</td>
+          <td></td>
+          <td>1 มิ.ย. 2560</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>ว่าที่ร้อยตรีสุทธนิต ชัยขุนพล</td>
+          <td>1 ส.ค. 2561</td>
+          <td>11 ส.ค. 2561</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
-  <div class="tab-pane fade pt-4 container-fluid" id="tab-3" role="tabpanel" aria-labelledby="nav-tab-3">
-    tab 3
+  <div class="tab-pane fade pt-4 container-fluid table-responsive" id="tab-3" role="tabpanel" aria-labelledby="nav-tab-3">
+    <table class="data-table table table-striped table-bordered" style="width:100%">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">ชื่อ - สกุล</th>
+          <th scope="col">ว/ด/ป เกิด</th>
+          <th scope="col">วันที่แจ้ง</th>
+          <th scope="col">วันที่บันทึก</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>นางสาวโชติกา ชัยขุนพล</td>
+          <td>20 ส.ค. 2532</td>
+          <td>1 มิ.ย. 2560</td>
+          <td>1 มิ.ย. 2560</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
-  <div class="tab-pane fade pt-4 container-fluid" id="tab-4" role="tabpanel" aria-labelledby="nav-tab-4">
-    tab 4
+  <div class="tab-pane fade pt-4 container-fluid table-responsive" id="tab-4" role="tabpanel" aria-labelledby="nav-tab-4">
+    <table class="data-table table table-striped table-bordered" style="width:100%">
+      <thead>
+        <tr>
+          <th scope="col">ลำดับ</th>
+          <th scope="col">ชื่อ - สกุล</th>
+          <th scope="col">ว/ด/ป เกิด</th>
+          <th scope="col">วันที่บันทึก</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+  <div class="tab-pane fade pt-5 container-fluid table-responsive" id="tab-5" role="tabpanel" aria-labelledby="nav-tab-5">
+    <form class="" action="index.html" method="post">
+      <div class="form-group row">
+        <label for="old_passw" class="col-form-label col-md-2">Old Password</label>
+        <div class="col-md-2">
+          <input type="password" class="form-control" name="old_passw" id="old_passw" value="">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="newpassw" class="col-form-label col-md-2">New Password</label>
+        <div class="col-md-2">
+          <input type="password" class="form-control" name="newpassw" id="newpassw" value="">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="repassw" class="col-form-label col-md-2">Re-new Password</label>
+        <div class="col-md-2">
+          <input type="password" class="form-control" name="repassw" id="repassw" value="">
+        </div>
+      </div>
+    </form>
   </div>
 
 </div>
