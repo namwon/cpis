@@ -17,7 +17,7 @@
       <a href="#tab-4">ข้อมูลบุตรธิดา</a>
     </li>
     <li class="nav-item nav-link">
-      <a href="#tab-5">ข้อมูลส่วนตัว</a>
+      <a href="#tab-5">เปลี่ยนรหัสผ่าน</a>
     </li>
   </ul>
 
