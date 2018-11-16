@@ -134,6 +134,12 @@
             <input type="password" class="form-control" name="repassw" id="repassw" value="">
           </div>
         </div>
+        <div class="form-group row">
+          <label for="uemail" class="col-form-label col-lg-2">E-mail</label>
+          <div class="col-lg-3">
+            <input type="email" class="form-control" name="uemail" id="uemail" value="">
+          </div>
+        </div>
       </form>
     </div>
 
