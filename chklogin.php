@@ -1,12 +1,12 @@
 <?php
 header('Content-type: text/html; charset=UTF-8');
-include('include/inc_conn.php');
-include('include/function.php');
+include('inc/inc_conn.php');
+include('inc/function.php');
 
 $user_login = $_POST['username'];
 $pass_login = $_POST['password'];
 
-include("assts/lib/nusoap.php");
+include("assets/lib/nusoap.php");
 $client = new nusoap_client("http://arya1/itservice/WebServiceServer.php?wsdl",true);
 $params = array(
            'uSername' => $user_login,

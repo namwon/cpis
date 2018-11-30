@@ -3,8 +3,6 @@ include_once 'inc/function.php';
 $inc = "booking";
 if (!empty($_GET['inc'])) {
   $inc = $_GET['inc'];
-} else {
-  PHPgourl('login.html');
 }
 ?>
 <!DOCTYPE html>
