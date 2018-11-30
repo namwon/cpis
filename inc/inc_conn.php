@@ -4,7 +4,7 @@ session_start();
 include("phpClass.php");
 $db=new DB;
 
-define("DB_HOST","localhost");
+define("DB_HOST","10.4.28.1");
 define("DB_NAME","arya");
 define("DB_USERNAME","root");
 define("DB_PASSWORD","A8r4Y2a6");
