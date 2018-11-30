@@ -9,6 +9,7 @@
 
     <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-4.1.3/dist/css/bootstrap.css">
     <link rel="stylesheet" href="assets/css/login.css">
+    <link href="assets/plugins/jquery-confirm-v3.3.0/dist/jquery-confirm.min.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
     <div class="login-page">
