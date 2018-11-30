@@ -73,12 +73,13 @@
                     // $.LoadingOverlay("hide");
                     window.location = "index.php";
                   } else {
+                    $.LoadingOverlay("hide");
                     $.confirm({
                       title: 'Error!',
                       content: data,
                       buttons: {
                         ok: function() {
-                          $.LoadingOverlay("hide");
+                          window.reload();
                         }
                       }
                     });
