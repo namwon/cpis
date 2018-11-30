@@ -8,7 +8,8 @@ $pass_login = $_POST['password'];
 
 //Check Login User
 include("assets/lib/nusoap.php");
-$client = new nusoap_client("http://aryasearch.coj.go.th/itservice/WebServiceServer.php?wsdl",true);
+$client = new nusoap_client("http://arya1/itservice/WebServiceServer.php?wsdl",true);
+// $client = new nusoap_client("http://aryasearch.coj.go.th/itservice/WebServiceServer.php?wsdl",true);
 $params = array(
            'uSername' => $user_login,
            'pAssword' => $pass_login
