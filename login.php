@@ -80,7 +80,7 @@
                       content: data,
                       buttons: {
                         ok: function() {
-                          window.reload();
+                          window.location.reload();
                         }
                       }
                     });
