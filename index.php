@@ -1,8 +1,14 @@
 <?php
+ob_start();
+session_start();
 include_once 'inc/function.php';
 $inc = "booking";
 if (!empty($_GET['inc'])) {
   $inc = $_GET['inc'];
+} else {
+  if ($_SESSION['loginok']!='ok') {
+      PHPgourl('login.html');
+  }
 }
 ?>
 <!DOCTYPE html>
