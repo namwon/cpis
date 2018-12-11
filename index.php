@@ -47,6 +47,13 @@ if (!empty($_GET['inc'])) {
       <button id="menu-toggle" class="navbar-toggler" type="button" aria-controls="navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <i class="fas fa-angle-right fa-2x"></i>
       </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        <form class="form-inline ml-auto">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
     </nav>
     <div id="wrapper">
       <!-- Image and text -->
