@@ -91,6 +91,12 @@ class DB
 			$sql = "DELETE FROM ".$table." WHERE ".$where;
 			return $sql;
 	}
+
+	///////// escape_string //////////
+	function escape_string($data) {
+		return mysqli_real_escape_string($this->connect_db, $data);
+	}
+	
 	/////////////// Close DB Connect //////////////
 	function closedb( ){
 		mysqli_close ( $this->connect_db ) or $this->_error();

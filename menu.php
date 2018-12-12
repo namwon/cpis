@@ -23,8 +23,21 @@ switch ($inc) {
 <div id="sidebar-wrapper">
   <div class="sidebar-profile">
     <img src="assets/img/no-image.png" class="rounded-circle img-fluid" alt="">
+    <!-- <a href="logout.php" class="memnuAlink">ออกจากระบบ</a> -->
   </div>
     <ul class="sidebar-nav">
+      <li class="">
+        <a href="index.php?inc=userlist">
+          <i class="fas fa-user-lock"></i>
+          ผู้ใช้งานระบบ
+        </a>
+      </li>
+      <li>
+        <a href="index.php?inc=employee">
+          <i class="fas fa-users"></i>
+          ข้อมูลเจ้าหน้าที่
+        </a>
+      </li>
       <li class="<?php echo $history; ?>">
         <a href="index.php?inc=history">
           <i class="far fa-address-card"></i>

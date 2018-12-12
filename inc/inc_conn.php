@@ -2,19 +2,19 @@
 ob_start();
 session_start();
 include("phpClass.php");
-// $db=new DB;
+$db=new DB;
 //
 // define("DB_HOST","10.4.28.1");
 // define("DB_NAME","arya");
 // define("DB_USERNAME","root");
 // define("DB_PASSWORD","A8r4Y2a6");
 //
-// // define("DB_HOST","localhost");
-// // define("DB_NAME","ccis_db");
-// // define("DB_USERNAME","root");
-// // define("DB_PASSWORD","Crimc10900");
-//
-// $db->connectdb(DB_HOST,DB_NAME,DB_USERNAME,DB_PASSWORD);
+define("DB_HOST","localhost");
+define("DB_NAME","cpis");
+define("DB_USERNAME","root");
+define("DB_PASSWORD","12345678");
+
+$db->connectdb(DB_HOST,DB_NAME,DB_USERNAME,DB_PASSWORD);
 //
 // $db2 = new DB;
 // define("DB_HOST2","localhost");

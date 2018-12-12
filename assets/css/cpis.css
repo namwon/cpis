@@ -101,7 +101,8 @@ h1, h2, h3, h4, h5 {
   text-decoration: none;
 }
 
-.sidebar-nav li.active {
+.sidebar-nav li.active,
+.sidebar-nav li.active a {
   text-decoration: none;
   color: #fff;
   background: rgba(255, 255, 255, 0.2);
@@ -311,4 +312,50 @@ footer {
 }
 .pt-5 {
   padding-top: 50px;
+}
+
+a.memnuAlink {
+  color: #e5e5e5;
+}
+a.memnuAlink:hover {
+  color: #ffffff;
+  text-decoration: none;
+}
+.fa-stack{
+    /* position:relative;
+    float:left; */
+    color: #fff !important;
+}
+
+.fa-stack-red[data-count]:after{
+  position:absolute;
+  right:-20%;
+  top:20%;
+  content: attr(data-count);
+  font-size:30%;
+  padding:.6em;
+  border-radius:999px;
+  line-height:.65em;
+  color: white;
+  background: rgba(255, 15, 0, 1);
+  text-align:center;
+  min-width:2em;
+  font-weight:bold;
+}
+
+
+.fa-stack-yellow[data-count]:after{
+  position:absolute;
+  right:-20%;
+  top:20%;
+  content: attr(data-count);
+  font-size:30%;
+  padding:.6em;
+  border-radius:999px;
+  line-height:.65em;
+  color: white;
+  background: rgba(255, 150, 0, 1);
+  text-align:center;
+  min-width:2em;
+  font-weight:bold;
 }
