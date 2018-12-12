@@ -76,5 +76,62 @@ switch ($inc) {
           <?php echo $bookingactive; ?>
         </a>
       </li>
+      <li class="<?php echo $booking; ?>">
+        <a href="index.php?inc=booking">
+          <i class="far fa-calendar-alt"></i>
+          การนัดหมาย
+          <?php echo $bookingactive; ?>
+        </a>
+      </li>
+      <li class="<?php echo $booking; ?>">
+        <a href="index.php?inc=booking">
+          <i class="far fa-calendar-alt"></i>
+          การนัดหมาย
+          <?php echo $bookingactive; ?>
+        </a>
+      </li>
+      <li class="<?php echo $booking; ?>">
+        <a href="index.php?inc=booking">
+          <i class="far fa-calendar-alt"></i>
+          การนัดหมาย
+          <?php echo $bookingactive; ?>
+        </a>
+      </li>
+      <li class="<?php echo $booking; ?>">
+        <a href="index.php?inc=booking">
+          <i class="far fa-calendar-alt"></i>
+          การนัดหมาย
+          <?php echo $bookingactive; ?>
+        </a>
+      </li>
+      <li class="<?php echo $booking; ?>">
+        <a href="index.php?inc=booking">
+          <i class="far fa-calendar-alt"></i>
+          การนัดหมายddd
+          <?php echo $bookingactive; ?>
+        </a>
+      </li>
+      <li class="<?php echo $booking; ?>">
+        <a href="index.php?inc=booking">
+          <i class="far fa-calendar-alt"></i>
+          การนัดหมายsss
+          <?php echo $bookingactive; ?>
+        </a>
+      </li>
+      <li class="<?php echo $booking; ?>">
+        <a href="index.php?inc=booking">
+          <i class="far fa-calendar-alt"></i>
+          การนัดหมายaaa
+          <?php echo $bookingactive; ?>
+        </a>
+      </li>
+      <li class="<?php echo $booking; ?>">
+        <a href="index.php?inc=booking">
+          <i class="far fa-calendar-alt"></i>
+          การนัดหมายxxx
+          <?php echo $bookingactive; ?>
+        </a>
+      </li>
+
     </ul>
 </div>
