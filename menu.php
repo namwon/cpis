@@ -14,6 +14,14 @@ switch ($inc) {
     $history = "active open";
     $historyactive = "<span class='active-page'></span>";
     break;
+  case 'userlist':
+    $userlist = "active open";
+    $userlistactive = "<span class='active-page'></span>";
+    break;
+  case 'employee':
+    $employee = "active open";
+    $employeeactive = "<span class='active-page'></span>";
+    break;
   default:
   $booking = "active open";
   $bookingactive = "<span class='active-page'></span>";
@@ -26,16 +34,18 @@ switch ($inc) {
     <!-- <a href="logout.php" class="memnuAlink">ออกจากระบบ</a> -->
   </div>
     <ul class="sidebar-nav">
-      <li class="">
+      <li class="<?php echo $userlist; ?>">
         <a href="index.php?inc=userlist">
           <i class="fas fa-user-lock"></i>
           ผู้ใช้งานระบบ
+          <?php echo $userlistactive; ?>
         </a>
       </li>
-      <li>
+      <li class="<?php echo $employee; ?>">
         <a href="index.php?inc=employee">
           <i class="fas fa-users"></i>
           ข้อมูลเจ้าหน้าที่
+          <?php echo $employeeactive; ?>
         </a>
       </li>
       <li class="<?php echo $history; ?>">

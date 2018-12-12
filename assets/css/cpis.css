@@ -340,7 +340,7 @@ a.memnuAlink:hover {
   background: rgba(255, 15, 0, 1);
   text-align:center;
   min-width:2em;
-  font-weight:bold;
+  /* font-weight:bold; */
 }
 
 
@@ -357,5 +357,5 @@ a.memnuAlink:hover {
   background: rgba(255, 150, 0, 1);
   text-align:center;
   min-width:2em;
-  font-weight:bold;
+  /* font-weight:bold; */
 }
