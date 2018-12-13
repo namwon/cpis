@@ -52,20 +52,20 @@ $rs = $db->arr_select($SQL);
               <i class="fas fa-plus"></i> บันทึกข้อมูลเพิ่มเติม
             </button>
             <div class="dropdown-menu topshow">
-              <a class="dropdown-item" href="#">ประวัติการดำรงตำแหน่ง</a>
-              <a class="dropdown-item" href="#">เลื่อนขั้นเงินเดือน</a>
-              <a class="dropdown-item" href="#">สังกัดในหน่วยงาน</a>
+              <a class="dropdown-item" href="index.php?inc=his_position">ประวัติการดำรงตำแหน่ง</a>
+              <a class="dropdown-item" href="index.php?inc=his_salary">เลื่อนขั้นเงินเดือน</a>
+              <a class="dropdown-item" href="index.php?inc=offices">สังกัดในหน่วยงาน</a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">ประวัติการศึกษา</a>
-              <a class="dropdown-item" href="#">ใบอนุญาตประกอบวิชาชีพ</a>
-              <a class="dropdown-item" href="#">ประวัติการฝึกอบรม</a>
+              <a class="dropdown-item" href="index.php?inc=his_education">ประวัติการศึกษา</a>
+              <a class="dropdown-item" href="index.php?inc=his_certificate">ใบอนุญาตประกอบวิชาชีพ</a>
+              <a class="dropdown-item" href="index.php?inc=his_training">ประวัติการฝึกอบรม</a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">ข้อมูลที่อยู่</a>
-              <a class="dropdown-item" href="#">ประวัติการเปลี่ยนชื่อ</a>
-              <a class="dropdown-item" href="#">ข้อมูลคู่สมรส</a>
-              <a class="dropdown-item" href="#">ข้อมูลบุตรธิดา</a>
+              <a class="dropdown-item" href="index.php?inc=his_adress">ข้อมูลที่อยู่</a>
+              <a class="dropdown-item" href="index.php?inc=his_name">ประวัติการเปลี่ยนชื่อ</a>
+              <a class="dropdown-item" href="index.php?inc=his_marry">ข้อมูลคู่สมรส</a>
+              <a class="dropdown-item" href="index.php?inc=his_children">ข้อมูลบุตรธิดา</a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">การได้รับโทษทางวินัยฯ</a>
+              <a class="dropdown-item" href="index.php?inc=his_discipline">การได้รับโทษทางวินัยฯ</a>
             </div>
           </div>
         </td>
