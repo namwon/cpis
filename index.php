@@ -19,7 +19,7 @@ if (!empty($_GET['inc'])) {
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ระบบสารสนเทศศาลอาญา</title>
+    <title>ระบบสารสนเทศทะเบียนประวัติศาลอาญา</title>
     <link rel="shortcut icon" href="assets/img/logo32x32.png">
 
     <!-- Bootstrap -->
