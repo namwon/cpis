@@ -834,3 +834,7 @@ input.currency {
     text-align: right;
     padding-right: 15px;
 }
+
+.topshow {
+  z-index: 99999999;
+}

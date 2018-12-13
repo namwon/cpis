@@ -1429,4 +1429,16 @@ function thainumDigit($num){
     $num);
 }
 
+function genDigit($newNum)
+{
+	$cal_2 = 0;
+
+  for($i=0, $cal_sum=0; $i<6; $i++) {
+    $cal_sum += (int)($newNum{$i})*(7-$i);
+  }
+  $cal_mod=$cal_sum%6;
+  $cal_2=6-$cal_mod;
+	$return = $newNum.$cal_2;
+	return $return;
+}
 ?>

@@ -96,9 +96,9 @@ class DB
 	function escape_string($data) {
 		return mysqli_real_escape_string($this->connect_db, $data);
 	}
-	
+
 	/////////////// Close DB Connect //////////////
-	function closedb( ){
+	function closedb(){
 		mysqli_close ( $this->connect_db ) or $this->_error();
 	}
 

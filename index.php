@@ -26,6 +26,7 @@ if (!empty($_GET['inc'])) {
     <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-4.1.3/dist/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="assets/plugins/fontawesome-free-5.1.0-web/css/all.css">
     <link rel="stylesheet" type="text/css" href="assets/plugins/metisMenu/metisMenu.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/plugins/jquery-confirm-v3.3.0/dist/jquery-confirm.min.css"/>
     <link rel="stylesheet" type="text/css" href="assets/css/cpis.css">
     <!-- <link rel="stylesheet" type="text/css" href="assets/css/sb-admin-2.css"> -->
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -36,7 +37,11 @@ if (!empty($_GET['inc'])) {
     <![endif]-->
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <!-- <script src="assets/js/jquery-1.11.0.min.js"></script> -->
+    <!-- <script type="text/javascript">
+       jq11 = jQuery.noConflict(true);
+    </script> -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
     <script type="text/javascript" src="assets/js/popper.min.js"></script>
     <script type="text/javascript" src="assets/plugins/bootstrap-4.1.3/dist/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="assets/plugins/fontawesome-free-5.1.0-web/js/all.js"></script>
