@@ -94,7 +94,7 @@ $pl = $db->arr_select($SQL);
     </div>
   </div>
 </div>
-<script src="https://code.jquery.com/jquery-1.11.0.min.js" integrity="sha256-spTpc4lvj4dOkKjrGokIrHkJgNA0xMS98Pw9N7ir9oI=" crossorigin="anonymous"></script>
+<script src="assets/js/jquery-1.11.0.min.js"></script>
 <script src="assets/plugins/webshim-1.16.0/js-webshim/minified/polyfiller.js"></script>
 
 <script type="text/javascript">
