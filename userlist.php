@@ -1,7 +1,8 @@
 <link rel="stylesheet" type="text/css" href="assets/plugins/DataTables/datatables.min.css"/>
 
 <h2>ข้อมูลผู้ใช้งานระบบ</h2>
-<div class="mt-5">
+<a href="index.php?inc=adduser" class="btn btn-primary"><i class="fas fa-plus"></i> เพิ่มผู้ใช้</a>
+<div class="mt-5 p-3 mb-2 bg-white">
   <table class="data-table table table-striped table-bordered" style="width:100%"><!-- ประวัติการดำรงตำแหน่ง -->
     <thead>
       <tr>

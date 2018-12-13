@@ -38,12 +38,14 @@
       (function($) {
         $(document).ready(function() {
           $("#btn_save").click(function() {
+            $.LoadingOverlay("show");
 
             var formData = new FormData(document.getElementsByName('frm_login')[0]); // yourForm: form selector
             var username = $("#username").val();
             var password = $("#password").val();
 
             if (username == "") {
+              $.LoadingOverlay("hide");
               $.confirm({
                 icon: 'fa fa-warning',
                 theme: 'modern',
@@ -60,7 +62,6 @@
               });
             }
             else {
-              $.LoadingOverlay("show");
               $.ajax({
                 type: "POST",
                 url: "chklogin.php", // where you wanna post

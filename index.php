@@ -1,7 +1,8 @@
 <?php
 ob_start();
 session_start();
-include_once 'inc/function.php';
+include('inc/inc_conn.php');
+include('inc/function.php');
 $inc = "booking";
 if (!empty($_GET['inc'])) {
   $inc = $_GET['inc'];
@@ -36,8 +37,11 @@ if (!empty($_GET['inc'])) {
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="assets/js/popper.min.js"></script>
     <script type="text/javascript" src="assets/plugins/bootstrap-4.1.3/dist/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="assets/plugins/fontawesome-free-5.1.0-web/js/all.js"></script>
+    <script type="text/javascript" src="assets/plugins/jquery-confirm-v3.3.0/dist/jquery-confirm.min.js"></script>
+    <script type="text/javascript" src="assets/js/loadingoverlay.js"></script>
   </head>
   <body>
 
@@ -105,6 +109,16 @@ if (!empty($_GET['inc'])) {
           }else{
             icon.addClass("fa-angle-right").removeClass("fa-angle-left");
           }
+    });
+    $(".clickShowLoad").click(function(){
+      $.LoadingOverlay("show");
+
+      // Hide it after 3 seconds
+      if ($(this).hasClass('cview')) {
+        setTimeout(function(){
+          $.LoadingOverlay("hide");
+        }, 3000);
+      }
     });
     </script>
   </body>
