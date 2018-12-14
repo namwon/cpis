@@ -21,6 +21,17 @@ switch ($inc) {
     break;
   case 'employee':
   case 'addperson':
+  case 'his_position':
+  case 'his_salary':
+  case 'offices':
+  case 'his_education':
+  case 'his_certificate':
+  case 'his_training':
+  case 'his_adress':
+  case 'his_name':
+  case 'his_marry':
+  case 'his_children':
+  case 'his_discipline':  
     $employee = "active open";
     $employeeactive = "<span class='active-page'></span>";
     break;

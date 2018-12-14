@@ -23,6 +23,7 @@ $data = array(
   'emp_birthdate' => $_POST['emp_birthdate'],
   'emp_phone' => $_POST['emp_phone'],
   'emp_mail' => $_POST['emp_mail'],
+  'emp_depcode' => $_POST['hp_depcode'],
   'user_upd' => $_SESSION['user_id'],
   'emp_incdate' => $_POST['emp_incdate'],
   'emp_appdate' => _getDate()
@@ -40,6 +41,7 @@ if ($db->my_query($rs)) {
     'hp_level' => $_POST['hp_level'],
     'hp_salary' => $_POST['hp_salary'],
     'user_upd' => $_SESSION['user_id'],
+    'hp_depcode' => $_POST['hp_depcode'],
     'hp_doc' => $_POST['hp_doc'],
     'hp_doc_date' => $_POST['hp_doc_date'],
     'hp_appdate' => _getDate()

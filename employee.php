@@ -8,12 +8,17 @@
 $SQL = "SELECT e.emp_num, concat(t.TN_NAME, e.emp_fname,' ', e.emp_sname) as emp_name,
                hp.hp_ponum, pl.PL_NAME, pt.PT_NAME, o.off_name
         FROM tb_employee e
-        LEFT JOIN (SELECT *, MAX(hp_step) FROM his_position GROUP BY emp_num) hp ON e.emp_num = hp.emp_num
+        LEFT JOIN (
+          SELECT a.* FROM his_position a
+          INNER JOIN (
+            SELECT emp_num, MAX(hp_step) max_step FROM his_position GROUP BY emp_num
+          ) b ON a.emp_num = b.emp_num AND a.hp_step = max_step
+        ) hp ON e.emp_num = hp.emp_num
         LEFT JOIN titlename t ON e.emp_title = t.TN_CODE
         LEFT JOIN postline pl ON hp.hp_pos = pl.PL_CODE
         LEFT JOIN posttype pt ON hp.hp_level = pt.PT_CODE
         LEFT JOIN offices o ON e.emp_depcode = o.off_code
-       ";
+        WHERE e.emp_num <> '9999999'";
 $rs = $db->arr_select($SQL);
 
 ?>
@@ -37,7 +42,7 @@ $rs = $db->arr_select($SQL);
     </thead>
     <tbody>
   <?php
-    for ($i=1; $i < count($rs); $i++) {
+    for ($i=0; $i < count($rs); $i++) {
   ?>
       <tr>
         <td><?php echo $rs[$i]['emp_num']; ?></td>
@@ -52,20 +57,20 @@ $rs = $db->arr_select($SQL);
               <i class="fas fa-plus"></i> บันทึกข้อมูลเพิ่มเติม
             </button>
             <div class="dropdown-menu topshow">
-              <a class="dropdown-item" href="index.php?inc=his_position">ประวัติการดำรงตำแหน่ง</a>
-              <a class="dropdown-item" href="index.php?inc=his_salary">เลื่อนขั้นเงินเดือน</a>
-              <a class="dropdown-item" href="index.php?inc=offices">สังกัดในหน่วยงาน</a>
+              <a class="dropdown-item" href="index.php?inc=his_position&emp_code=<?php echo $rs[$i]['emp_num']; ?>">ตำแหน่ง/เงินเดือน</a>
+              <!-- <a class="dropdown-item" href="index.php?inc=his_salary&emp_code=<?php echo $rs[$i]['emp_num']; ?>">เลื่อนขั้นเงินเดือน</a> -->
+              <a class="dropdown-item" href="index.php?inc=offices&emp_code=<?php echo $rs[$i]['emp_num']; ?>">สังกัดในหน่วยงาน</a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="index.php?inc=his_education">ประวัติการศึกษา</a>
-              <a class="dropdown-item" href="index.php?inc=his_certificate">ใบอนุญาตประกอบวิชาชีพ</a>
-              <a class="dropdown-item" href="index.php?inc=his_training">ประวัติการฝึกอบรม</a>
+              <a class="dropdown-item" href="index.php?inc=his_education&emp_code=<?php echo $rs[$i]['emp_num']; ?>">ประวัติการศึกษา</a>
+              <a class="dropdown-item" href="index.php?inc=his_certificate&emp_code=<?php echo $rs[$i]['emp_num']; ?>">ใบอนุญาตประกอบวิชาชีพ</a>
+              <a class="dropdown-item" href="index.php?inc=his_training&emp_code=<?php echo $rs[$i]['emp_num']; ?>">ประวัติการฝึกอบรม</a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="index.php?inc=his_adress">ข้อมูลที่อยู่</a>
-              <a class="dropdown-item" href="index.php?inc=his_name">ประวัติการเปลี่ยนชื่อ</a>
-              <a class="dropdown-item" href="index.php?inc=his_marry">ข้อมูลคู่สมรส</a>
-              <a class="dropdown-item" href="index.php?inc=his_children">ข้อมูลบุตรธิดา</a>
+              <a class="dropdown-item" href="index.php?inc=his_adress&emp_code=<?php echo $rs[$i]['emp_num']; ?>">ข้อมูลที่อยู่</a>
+              <a class="dropdown-item" href="index.php?inc=his_name&emp_code=<?php echo $rs[$i]['emp_num']; ?>">ประวัติการเปลี่ยนชื่อ</a>
+              <a class="dropdown-item" href="index.php?inc=his_marry&emp_code=<?php echo $rs[$i]['emp_num']; ?>">ข้อมูลคู่สมรส</a>
+              <a class="dropdown-item" href="index.php?inc=his_children&emp_code=<?php echo $rs[$i]['emp_num']; ?>">ข้อมูลบุตรธิดา</a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="index.php?inc=his_discipline">การได้รับโทษทางวินัยฯ</a>
+              <a class="dropdown-item" href="index.php?inc=his_discipline&emp_code=<?php echo $rs[$i]['emp_num']; ?>">การได้รับโทษทางวินัยฯ</a>
             </div>
           </div>
         </td>

@@ -10,8 +10,10 @@ $SQL = "SELECT * FROM posttype WHERE PT_ACTIVE='1'";
 $pt = $db->arr_select($SQL);
 $SQL = "SELECT * FROM postline WHERE PL_ACTIVE='1'";
 $pl = $db->arr_select($SQL);
+$SQL = "SELECT * FROM offices";
+$of = $db->arr_select($SQL);
+
 ?>
-<link rel='stylesheet' href='assets/plugins/Bootstrap-4-Tag-Input-Plugin-jQuery/tagsinput.css' />
 <h2>เพิ่มข้อมูลเจ้าหน้าที่</h2>
 <div class="container-fluid mt-5 pt-5 pb-5 bg-white">
   <div class="row">
@@ -23,7 +25,7 @@ $pl = $db->arr_select($SQL);
             <select class="form-control" name="emp_title" id="emp_title">
               <option value="">...</option>
             <?php
-              for ($i=0; $i < count($rs)-1; $i++) {
+              for ($i=0; $i < count($rs); $i++) {
                 echo "<option value=\"".$rs[$i]['TN_CODE']."\">".$rs[$i]['TN_NAME']."</option>\r\n";
               }
             ?>
@@ -75,7 +77,7 @@ $pl = $db->arr_select($SQL);
             <select class="form-control" name="hp_pos" id="hp_pos">
               <option value="">...</option>
             <?php
-              for ($i=0; $i < count($pl)-1; $i++) {
+              for ($i=0; $i < count($pl); $i++) {
                 echo "<option value=\"".$pl[$i]['PL_CODE']."\">".$pl[$i]['PL_NAME']."</option>\r\n";
               }
             ?>
@@ -86,8 +88,21 @@ $pl = $db->arr_select($SQL);
             <select class="form-control" name="hp_level" id="hp_level">
               <option value="">...</option>
             <?php
-              for ($i=0; $i < count($pt)-1; $i++) {
+              for ($i=0; $i < count($pt); $i++) {
                 echo "<option value=\"".$pt[$i]['PT_CODE']."\">".$pt[$i]['PT_NAME']."</option>\r\n";
+              }
+            ?>
+            </select>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="hp_depcode" class="col-lg-2 col-form-label text-right">สังกัด</label>
+          <div class="col-lg-3">
+            <select class="form-control" name="hp_depcode" id="hp_depcode">
+              <option value="">...</option>
+            <?php
+              for ($i=0; $i < count($of); $i++) {
+                echo "<option value=\"".$of[$i]['off_code']."\">".$of[$i]['off_name']."</option>\r\n";
               }
             ?>
             </select>
