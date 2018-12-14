@@ -59,7 +59,7 @@ $rs = $db->arr_select($SQL);
             <div class="dropdown-menu topshow">
               <a class="dropdown-item" href="index.php?inc=his_position&emp_code=<?php echo $rs[$i]['emp_num']; ?>">ตำแหน่ง/เงินเดือน</a>
               <!-- <a class="dropdown-item" href="index.php?inc=his_salary&emp_code=<?php echo $rs[$i]['emp_num']; ?>">เลื่อนขั้นเงินเดือน</a> -->
-              <a class="dropdown-item" href="index.php?inc=offices&emp_code=<?php echo $rs[$i]['emp_num']; ?>">สังกัดในหน่วยงาน</a>
+              <!-- <a class="dropdown-item" href="index.php?inc=offices&emp_code=<?php echo $rs[$i]['emp_num']; ?>">สังกัดในหน่วยงาน</a> -->
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="index.php?inc=his_education&emp_code=<?php echo $rs[$i]['emp_num']; ?>">ประวัติการศึกษา</a>
               <a class="dropdown-item" href="index.php?inc=his_certificate&emp_code=<?php echo $rs[$i]['emp_num']; ?>">ใบอนุญาตประกอบวิชาชีพ</a>

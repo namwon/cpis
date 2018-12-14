@@ -1,3 +1,22 @@
+<?php
+// SELECT TN_CODE, TN_SH_NAME, TN_NAME, TN_ENG_NAME, TN_ACTIVE, UPD_USER, UPD_DATE, PS_SEX FROM titlename WHERE 1
+// SELECT emp_num, emp_login, emp_pws, emp_title, emp_fname, emp_sname, emp_birthdate, emp_phone, emp_mail, user_upd, emp_depcode, emp_incdate, emp_appdate FROM tb_employee WHERE 1
+// SELECT PL_CODE, PW_CODE, PL_NAME, PL_SH_NAME, PL_ACTIVE, UPD_USER, UPD_DATE FROM postline WHERE 1
+// SELECT PG_CODE, PT_CODE, PT_NAME, PT_SH_NAME, PT_ACTIVE, UPD_USER, UPD_DATE FROM posttype WHERE 1
+// SELECT hp_id, hp_date, hp_pos, hp_ponum, hp_level, hp_salary, hp_doc, hp_doc_date, user_upd, emp_num, hp_appdate FROM his_position WHERE 1
+$emp_num = $_SESSION['user_id'];
+$SQL = "SELECT e.emp_num, e.emp_login, concat(t.TN_NAME, e.emp_fname,' ', e.emp_sname) as emp_name,
+               hp.hp_ponum, hp.hp_date, hp.hp_salary, pl.PL_NAME, pt.PT_NAME, o.off_name, hp.hp_doc, hp.hp_doc_date
+        FROM tb_employee e
+        LEFT JOIN his_position hp ON e.emp_num = hp.emp_num
+        LEFT JOIN titlename t ON e.emp_title = t.TN_CODE
+        LEFT JOIN postline pl ON hp.hp_pos = pl.PL_CODE
+        LEFT JOIN posttype pt ON hp.hp_level = pt.PT_CODE
+        LEFT JOIN offices o ON e.emp_depcode = o.off_code
+        WHERE e.emp_num = '$emp_num'";
+$tab1 = $db->arr_select($SQL);
+
+?>
 <link rel="stylesheet" type="text/css" href="assets/plugins/DataTables/datatables.min.css"/>
 
 <h2>ข้อมูลทะเบียนประวัติ</h2>
@@ -35,14 +54,18 @@
           </tr>
         </thead>
         <tbody>
+        <?php
+          for ($i=0; $i < count($tab1); $i++) {
+        ?>
           <tr>
-            <td class="text-center">1 มิ.ย. 2560</td>
-            <td>นักวิชาการคอมพิวเตอร์</td>
-            <td class="text-center">xxxx</td>
-            <td>ปฏิบัติการ</td>
-            <td class="text-right">xx,xxx.xx</td>
-            <td class="text-center">1 มิ.ย. 2560</td>
+            <td class="text-center"><?php echo _Tdates2($tab1[$i]['hp_date']); ?></td>
+            <td><?php echo $tab1[$i]['PL_NAME']; ?></td>
+            <td class="text-center"><?php echo $tab1[$i]['hp_ponum']; ?></td>
+            <td><?php echo $tab1[$i]['PT_NAME']; ?></td>
+            <td class="text-right"><?php echo number_format($tab1[$i]['hp_salary'],2,'.',','); ?></td>
+            <td class="text-center"><?php echo $tab1[$i]['hp_doc']."<br>"._Tdates2($tab1[$i]['hp_doc_date']); ?></td>
           </tr>
+        <?php } ?>
         </tbody>
       </table>
     </div>
