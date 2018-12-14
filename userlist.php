@@ -22,7 +22,7 @@ $rs = $db->arr_select($SQL);
 <link rel="stylesheet" type="text/css" href="assets/plugins/DataTables/datatables.min.css"/>
 
 <h2>ข้อมูลผู้ใช้งานระบบ</h2>
-<a href="index.php?inc=adduser" class="btn btn-primary"><i class="fas fa-plus"></i> เพิ่มผู้ใช้</a>
+<!-- <a href="index.php?inc=adduser" class="btn btn-primary"><i class="fas fa-plus"></i> เพิ่มผู้ใช้</a> -->
 <div class="mt-5 p-3 mb-2 bg-white">
   <table class="data-table table table-striped table-bordered" style="width:100%"><!-- ประวัติการดำรงตำแหน่ง -->
     <thead>
@@ -46,12 +46,12 @@ $rs = $db->arr_select($SQL);
         <td class="text-center"><?php echo $rs[$i]['hp_ponum']; ?></td>
         <td><?php echo $rs[$i]['off_name']; ?></td>
         <td class="text-center">
-					<a href="#" class="btn btn-warning" title="แก้ไขรหัสผ่าน">
+					<button class="btn btn-warning repass" title="แก้ไขรหัสผ่าน" data-id="<?php echo $rs[$i]['emp_num']; ?>">
 						<i class="fa fa-edit"></i>
-					</a>
-					<a href="#" class="btn btn-info" title="กำหนดสิทธิ์">
+					</button>
+					<!-- <a href="#" class="btn btn-info" title="กำหนดสิทธิ์">
 						<i class="fas fa-ellipsis-h"></i>
-					</a>
+					</a> -->
         </td>
       </tr>
   <?php } ?>
@@ -64,8 +64,57 @@ $rs = $db->arr_select($SQL);
 <script type="text/javascript" src="assets/plugins/DataTables/datatables.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
-  $('.data-table').DataTable({
-    "order": [[ 1, "asc" ]]
+  $('.data-table').DataTable();
+
+  $(".repass").click(function() {
+    var id = $(this).data("id");
+
+    $.confirm({
+      theme: 'modern',
+      title: 'Confirm!',
+      type: 'orange',
+      icon: 'fas fa-exclamation',
+      content: 'คุณต้องการตั้งค่ารหัสผ่านใหม่ ใช่หรือไม่?',
+      buttons: {
+        btn1: {
+          text: 'ตกลง',
+          btnClass: 'btn-blue',
+          action: function() {
+            var formData = '';
+            $.LoadingOverlay("show");
+            $.ajax({
+              type: "GET",
+              url: "resetpassword.php?emp_code=" + id, // where you wanna post
+              data: formData,
+              processData: false,
+              contentType: false,
+              enctype: 'multipart/form-data',
+              success: function(data) {
+                var str = data.split(",")
+                if (str[0].trim() == "success") {
+                  window.location = "index.php?inc=userlist";
+                } else {
+                  $.confirm({
+                    title: 'Error!',
+                    content: data,
+                    buttons: {
+                      ok: function() {
+                        $.LoadingOverlay("hide");
+                        // setTimeout(function() {
+                        //   location.reload();
+                        // }, 2000);
+                      }
+                    }
+                  });
+                }
+              }
+            });
+          }
+        },
+        cancel: function() {
+        }
+      }
+    });
   });
 });
 </script>

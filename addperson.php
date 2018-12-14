@@ -20,6 +20,12 @@ $of = $db->arr_select($SQL);
     <div class="container-fluid">
       <form name="frm_save" id="frm_save" method="post" action="#">
         <div class="form-group row">
+          <label for="emp_login" class="col-lg-2 col-form-label text-right">หมายเลขบัตรประชาชน</label>
+          <div class="col-lg-3">
+            <input type="text" name="emp_login" id="emp_login" maxlength="13" class="form-control" value="">
+          </div>
+        </div>
+        <div class="form-group row">
           <label for="emp_title" class="col-lg-2 col-form-label text-right">คำนำหน้าชื่อ</label>
           <div class="col-lg-2">
             <select class="form-control" name="emp_title" id="emp_title">

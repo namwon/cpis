@@ -6,6 +6,8 @@ include('inc/function.php');
 // $nowdate = date('Y-m-d');
 
 // $lsNum = "SELECT * FROM tb_genempnum WHERE geid='1'";
+// echo $psw;
+exit();
 $lsNum = $db->my_maxID('last_num','tb_genempnum',"geid='1'") + 1;
 $arN = array('last_num' => $lsNum, 'user_upd' => $_SESSION['user_id'], 'upd_date' => _getDate() );
 $rsNu = $db->my_update('tb_genempnum',$arN,"geid='1'");
@@ -14,9 +16,12 @@ $newNum =sprintf("%06d",$lsNum);
 $emp_num = genDigit($newNum);
 
 // $SQL = "SELECT emp_num, emp_login, emp_pws, emp_title, emp_fname, emp_sname, emp_birthdate, emp_phone, emp_mail, user_upd, emp_depcode, emp_incdate, emp_appdate FROM tb_employee";
+$psw = str_replace('/','',dateDateTh($_POST['emp_birthdate']));
 
 $data = array(
   'emp_num' => $emp_num,
+  'emp_login' => $_POST['emp_login'],
+  'emp_psw' => $psw,
   'emp_title' => $_POST['emp_title'],
   'emp_fname' => $_POST['emp_fname'],
   'emp_sname' => $_POST['emp_sname'],

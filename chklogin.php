@@ -39,12 +39,12 @@ include('inc/function.php');
  // }
 
  $emp_login = $db->escape_string($_POST['username']);
- $emp_pws = md5($_POST['password']);
+ $emp_psw = md5($_POST['password']);
 
 // SELECT `emp_num`, `emp_login`, `emp_pws`, `emp_title`, `emp_fname`, `emp_sname`, `emp_birthdate`, `emp_phone`, `emp_mail`, `user_upd`, `emp_depcode`, `emp_incdate`, `emp_appdate` FROM `tb_employee` WHERE 1
 
 
- $SQL = "SELECT * FROM tb_employee WHERE emp_login='$emp_login' AND trim(emp_pws) = '$emp_pws'";
+ $SQL = "SELECT * FROM tb_employee WHERE emp_login='$emp_login' AND trim(emp_psw) = '$emp_psw'";
  $rs = $db->arr_select($SQL);
 
  // echo $SQL;
