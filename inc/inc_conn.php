@@ -12,7 +12,7 @@ $db=new DB;
 define("DB_HOST","localhost");
 define("DB_NAME","cpis");
 define("DB_USERNAME","root");
-define("DB_PASSWORD","12345678");
+define("DB_PASSWORD","Crimc10900");
 
 $db->connectdb(DB_HOST,DB_NAME,DB_USERNAME,DB_PASSWORD);
 //
