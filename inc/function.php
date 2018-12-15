@@ -46,9 +46,15 @@ function _Tdates($d)
 		if(is_string($d)){$d=strtotime($d);}
 
 		$month_name = array("","มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม");
-		return "วันที่ ".date("j",$d)." ".$month_name[date("n",$d)]." พ.ศ ".(date("Y",$d)+543);
+		return "วันที่ ".date("j",$d)." ".$month_name[date("n",$d)]." ".(date("Y",$d)+543);
 	}
+	function _TdatesNopre($d)
+		{
+			if(is_string($d)){$d=strtotime($d);}
 
+			$month_name = array("","มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม");
+			return date("j",$d)." ".$month_name[date("n",$d)]." พ.ศ ".(date("Y",$d)+543);
+		}
 function _Tdates2($d)
 	{
 		if(is_string($d)){$d=strtotime($d);}

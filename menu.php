@@ -31,7 +31,7 @@ switch ($inc) {
   case 'his_name':
   case 'his_marry':
   case 'his_children':
-  case 'his_discipline':  
+  case 'his_discipline':
     $employee = "active open";
     $employeeactive = "<span class='active-page'></span>";
     break;
@@ -47,6 +47,9 @@ switch ($inc) {
     <!-- <a href="logout.php" class="memnuAlink">ออกจากระบบ</a> -->
   </div>
     <ul class="sidebar-nav">
+<?php
+  if ($_SESSION['user_login']=='admin') {
+?>
       <li class="<?php echo $userlist; ?>">
         <a href="index.php?inc=userlist" class="clickShowLoad">
           <i class="fas fa-user-lock"></i>
@@ -61,7 +64,9 @@ switch ($inc) {
           <?php echo $employeeactive; ?>
         </a>
       </li>
-
+  <?php
+    }
+  ?>
 
 
       <!-- Menu สำหรับผู้ใช้ทั่วไป -->

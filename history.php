@@ -15,7 +15,10 @@ $SQL = "SELECT e.emp_num, e.emp_login, concat(t.TN_NAME, e.emp_fname,' ', e.emp_
         LEFT JOIN offices o ON e.emp_depcode = o.off_code
         WHERE e.emp_num = '$emp_num'";
 $tab1 = $db->arr_select($SQL);
-
+$SQL = "SELECT  * FROM his_education WHERE emp_num = '$emp_num' ORDER BY he_num";
+$tab2 = $db->arr_select($SQL);
+$SQL = "SELECT  * FROM his_doccer WHERE emp_num = '$emp_num' ORDER BY hd_num";
+$tab3 = $db->arr_select($SQL);
 ?>
 <link rel="stylesheet" type="text/css" href="assets/plugins/DataTables/datatables.min.css"/>
 
@@ -84,16 +87,20 @@ $tab1 = $db->arr_select($SQL);
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td class="text-center">1</td>
-            <td>มหาวิทยาลัยแม่โจ้</td>
-            <td>คณะบริหารธุรกิจ / สาขาเทคโนโลยีสารสนเทศทางธุรกิจ</td>
-            <td>บธ.บ.</td>
-            <td class="text-center">14 มีนาคม 2544</td>
-            <td></td>
-            <td><!-- <i class="far fa-file-pdf"></i> --></td>
-            <td class="text-center">1 มิ.ย. 2560</td>
-          </tr>
+        <?php
+          for ($i=0; $i < count($tab2); $i++) {
+        ?>
+            <tr>
+              <td><?php echo $tab2[$i]['he_num']; ?></td>
+              <td><?php echo $tab2[$i]['he_school']; ?></td>
+              <td><?php echo $tab2[$i]['he_faculty'].'/'.$tab2[$i]['he_faculty2']; ?></td>
+              <td><?php echo $tab2[$i]['he_level']; ?></td>
+              <td><?php echo _TdatesNopre($tab2[$i]['he_date']); ?></td>
+              <td><?php echo $tab2[$i]['he_top']; ?></td>
+              <td><?php echo $tab2[$i]['he_doc']; ?></td>
+              <td><?php echo dateDateTh($tab2[$i]['he_appdate']); ?></td>
+            </tr>
+        <?php } ?>
         </tbody>
       </table>
     </div>
@@ -110,14 +117,18 @@ $tab1 = $db->arr_select($SQL);
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td class="text-center"></td>
-            <td></td>
-            <td></td>
-            <td class="text-center"></td>
-            <td class="text-center"></td>
-            <td class="text-center"></td>
-          </tr>
+        <?php
+          for ($i=0; $i < count($tab3); $i++) {
+        ?>
+            <tr>
+              <td><?php echo $tab3[$i]['hd_num']; ?></td>
+              <td><?php echo $tab3[$i]['hd_school']; ?></td>
+              <td><?php echo $tab3[$i]['hd_type']; ?></td>
+              <td><?php echo dateDateTh($tab3[$i]['hd_expd']); ?></td>
+              <td><?php echo dateDateTh($tab3[$i]['hd_incdate']); ?></td>
+              <td><?php echo dateDateTh($tab3[$i]['hd_appdate']); ?></td>
+            </tr>
+        <?php } ?>
         </tbody>
       </table>
     </div>

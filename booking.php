@@ -43,7 +43,7 @@
         <div class="form-group row">
           <label for="book_name" class="col-form-label col-lg-3">ผู้เกี่ยวข้อง</label>
           <div class="col-lg-9">
-            <input type="text" name="book_name" id="book_name" data-role="tagsinput" value="USER1,USER2,USER3">
+            <input type="text" name="book_name" id="book_name" data-role="tagsinput" value="">
           </div>
         </div>
         <div class="form-group row">
@@ -73,7 +73,7 @@ $(function() {
 
   $('#calendar').fullCalendar({
     defaultView: 'month',
-    events: 'https://fullcalendar.io/demo-events.json',
+    events: '',
     header: {
       left: 'prev,next',
       center: 'title',

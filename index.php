@@ -92,6 +92,7 @@ if (!empty($_GET['inc'])) {
         <!-- Page Content -->
         <div id="page-content-wrapper">
             <div class="container-fluid">
+              <p class="text-right"><?php echo $_SESSION['user_name']; ?> <small><?php echo $_SESSION['position'] ; ?></small></p>
                 <?php include "$inc.php"; ?>
             </div>
         </div>

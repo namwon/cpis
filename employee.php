@@ -27,7 +27,7 @@ $rs = $db->arr_select($SQL);
 
 <h2>ข้อมูลเจ้าหน้าที่</h2>
 <a href="index.php?inc=addperson" class="btn btn-primary"><i class="fas fa-plus"></i> เพิ่มข้อมูลเจ้าหน้าที่</a>
-<div class="mt-5 p-3 mb-2 bg-white">
+<div class="mt-5 p-3 mb-2 bg-white table-responsive">
   <table class="data-table table table-striped table-bordered" style="width:100%"><!-- ประวัติการดำรงตำแหน่ง -->
     <thead>
       <tr>
