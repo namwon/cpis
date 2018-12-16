@@ -27,7 +27,7 @@ $rs = $db->arr_select($SQL);
 
 <h2>ข้อมูลเจ้าหน้าที่</h2>
 <a href="index.php?inc=addperson" class="btn btn-primary"><i class="fas fa-plus"></i> เพิ่มข้อมูลเจ้าหน้าที่</a>
-<div class="mt-5 p-3 mb-2 bg-white table-responsive">
+<div class="mt-5 p-3 mb-2 bg-white">
   <table class="data-table table table-striped table-bordered" style="width:100%"><!-- ประวัติการดำรงตำแหน่ง -->
     <thead>
       <tr>
@@ -53,7 +53,7 @@ $rs = $db->arr_select($SQL);
         <td><?php echo $rs[$i]['off_name']; ?></td>
         <td class="text-center">
           <div class="btn-group">
-            <button type="button" class="btn btn-sm btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <button type="button" class="btn btn-sm btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
               <i class="fas fa-plus"></i> บันทึกข้อมูลเพิ่มเติม
             </button>
             <div class="dropdown-menu topshow">

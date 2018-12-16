@@ -1,3 +1,15 @@
+<?php
+$me = $_SESSION['user_id'];
+$SQL = "SELECT e.emp_num, concat(t.TN_NAME, e.emp_fname,' ', e.emp_sname) as emp_name
+        FROM tb_employee e
+        LEFT JOIN titlename t ON e.emp_title = t.TN_CODE
+        WHERE e.emp_num not in ('9999999','$me')";
+$em = $db->arr_select($SQL);
+//hl_id, emp_num, hl_type, hl_title, hl_sdate, hl_date, boss_1, boss_2, boss_3, boss1_approve, boss2_approve, boss3_approve, boss1_status, boss2_status, boss3_status, boss1_remark, boss2_remark, boss3_remark, hl_appdate, hl_remark
+$SQL = "SELECT * FROM his_leave WHERE emp_num = '$me' ORDER BY hl_sdate DESC";
+$tab3 = $db->arr_select($SQL);
+
+?>
 <link rel="stylesheet" type="text/css" href="assets/plugins/DataTables/datatables.min.css"/>
 
 <h2>ข้อมูลวันลา</h2>
@@ -52,42 +64,71 @@
       </table>
     </div>
     <div class="tab-pane fade pt-4 container-fluid table-responsive" id="tab-2" role="tabpanel" aria-labelledby="nav-tab-2">
-      <form class="form-horizontal" id="frm_leave" name="frm_leave" method="post">
+      <form  id="frm_leave" name="frm_leave" method="post">
         <div class="form-group row">
-          <label for="lv_sdate" class="col-form-label col-lg-2">วันที่เริ่มต้น</label>
-          <div class="col-lg-3 input-group mb-3">
-            <input type="date" class="form-control" name="lv_sdate" id="lv_sdate" value="">
+          <label for="hl_sdate" class="col-form-label col-lg-2">วันที่เริ่มต้น</label>
+          <!-- <div class="col-lg-3 input-group mb-3">
+            <input type="date" class="form-control" name="hl_sdate" id="hl_sdate" value="">
             <div class="input-group-append">
               <span class="input-group-text" id="calendar1"><i class="fas fa-calendar-alt"></i></span>
             </div>
-          </div>
-        </div>
-        <div class="form-group row">
-          <label for="lv_edate" class="col-form-label col-lg-2">วันที่สิ้นสุด</label>
-          <div class="col-lg-3 input-group mb-3">
-            <input type="date" class="form-control" name="lv_edate" id="lv_edate" value="">
-            <div class="input-group-append">
-              <span class="input-group-text" id="calendar1"><i class="fas fa-calendar-alt"></i></span>
-            </div>
-          </div>
-        </div>
-        <div class="form-group row">
-          <label for="lv_type" class="col-form-label col-lg-2">ประเภทการลา</label>
+          </div> -->
           <div class="col-lg-3">
-            <select class="form-control" name="lv_type" id="lv_type">
-              <option value="ลาป่วย">ลาป่วย</option>
-              <option value="ลาพักผ่อน">ลาพักผ่อน</option>
-              <option value="ลาคลอด">ลาคลอด</option>
-              <option value="ลากิจ">ลากิจ</option>
+            <input type="date" class="form-control" name="hl_sdate" id="hl_sdate" value="">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="hl_date" class="col-form-label col-lg-2">วันที่สิ้นสุด</label>
+          <!-- <div class="col-lg-3 input-group mb-3">
+            <input type="date" class="form-control" name="hl_date" id="hl_date" value="">
+            <div class="input-group-append">
+              <span class="input-group-text" id="calendar1"><i class="fas fa-calendar-alt"></i></span>
+            </div>
+          </div> -->
+          <div class="col-lg-3">
+            <input type="date" class="form-control" name="hl_date" id="hl_date" value="">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="hl_type" class="col-form-label col-lg-2">ประเภทการลา</label>
+          <div class="col-lg-3">
+            <select class="form-control" name="hl_type" id="hl_type">
+              <option value="1">ลาป่วย</option>
+              <option value="2">ลาพักผ่อน</option>
+              <option value="3">ลาคลอด</option>
+              <option value="4">ลากิจ</option>
             </select>
           </div>
         </div>
         <div class="form-group row">
-          <label for="lv_mark" class="col-form-label col-lg-2">เหตุของการลา</label>
+          <label for="hl_title" class="col-form-label col-lg-2">เหตุของการลา</label>
           <div class="col-lg-9">
-            <input type="text" name="lv_mark" id="lv_mark" class="form-control" value="">
+            <input type="text" name="hl_title" id="hl_title" class="form-control" value="">
           </div>
         </div>
+        <div class="form-group row">
+          <label for="boss_1" class="col-form-label col-lg-2">หัวหน้าลำดับที่ 1</label>
+          <div class="col-lg-3">
+            <select class="form-control" name="boss_1" id="boss_1">
+              <option value="">...</option>
+              <?php for ($i=0; $i < count($em); $i++) {
+                echo "<option value=\"".$em[$i]['emp_num']."\">".$em[$i]['emp_name']."</option>";
+              } ?>
+            </select>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="boss_2" class="col-form-label col-lg-2">หัวหน้าที่เหนือขึ้นไป</label>
+          <div class="col-lg-3">
+            <select class="form-control" name="boss_2" id="boss_2">
+              <option value="">...</option>
+              <?php for ($i=0; $i < count($em); $i++) {
+                echo "<option value=\"".$em[$i]['emp_num']."\">".$em[$i]['emp_name']."</option>";
+              } ?>
+            </select>
+          </div>
+        </div>
+        <input type="hidden" name="boss_3" id="boss_3" value="0000066">
         <div class="form-group">
           <button type="button" name="btn_save" id="btn_save" class="offset-lg-2 btn btn-primary">บันทึก</button>
           <button type="reset" name="btn_clear" id="btn_clear" class="btn btn-warning">ล้างข้อมูล</button>
@@ -108,38 +149,64 @@
           </tr>
         </thead>
         <tbody>
+        <?php
+        $numList = count($tab3);
+          for ($i=0; $i < count($tab3); $i++) {
+            switch ($tab3[$i]['hl_type']) {
+              case '1':
+                $type = "ลาป่วย";
+                break;
+              case '2':
+                $type = "ลาพักผ่อน";
+                break;
+              case '3':
+                $type = "ลาคลอด";
+                break;
+              case '4':
+                $type = "ลากิจ";
+                break;
+              default:
+                $type = "ไม่ได้ระบุ";
+                break;
+            }
+            $leavedate = _TSdateNopre($tab3[$i]['hl_sdate']);
+            if ($tab3[$i]['hl_date'] != $tab3[$i]['hl_sdate']) {
+              $leavedate = _TSdateNopre($tab3[$i]['hl_sdate']).' - '._TSdateNopre($tab3[$i]['hl_date']);
+            }
+
+            $leaveStatus = "";
+            if ($tab3[$i]['boss3_approve'] == '0000-00-00') {
+              $leaveStatus = "รอการอนุมัติ";
+            }
+        ?>
           <tr>
-            <td>1</td>
-            <td>ลาพักผ่อน</td>
-            <td>5 กรกฎาคม 2561 - 6 กรกฎาคม 2561</td>
-            <td>อนุมัติแล้ว</td>
-            <td>ลาพักผ่อน</td>
-            <td>3 กรกฎาคม 2561</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>ไข้หวัด</td>
-            <td>1 สิงหาคม 2561</td>
-            <td>อนุมัติแล้ว</td>
-            <td>ลาป่วย</td>
-            <td>1 สิงหาคม 2561</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>ลาพักผ่อน</td>
-            <td>20 พฤศจิกายน 2561</td>
-            <td>อนุมัติแล้ว</td>
-            <td>ลาพักผ่อน</td>
-            <td>13 พฤศจิกายน 2561</td>
+            <td><?php echo $numList-- ?></td>
+            <td><?php echo $tab3[$i]['hl_title']; ?></td>
+            <td><?php echo $leavedate; ?></td>
+            <td><?php echo $leaveStatus; ?></td>
+            <td><?php echo $type; ?></td>
+            <td><?php echo _TSdateNopre($tab3[$i]['hl_appdate']); ?></td>
             <td>
+            <?php
+              if ($tab3[$i]['boss1_approve'] == '0000-00-00') {
+            ?>
+              <a href="#" title="แก้ไข">
+                <i class="far fa-edit"></i>
+              </a>&nbsp;
+              <a href="#" title="ลบ">
+                <i class="far fa-trash-alt"></i>
+              </a>
+            <?php
+          } elseif ($tab3[$i]['boss1_approve'] != '0000-00-00' && $tab3[$i]['boss2_approve'] == '0000-00-00') {
+            ?>
               <a href="#" title="ยกเลิกใบลา">
                 <i class="fas fa-ban"></i>
               </a>
+            <?php } ?>
             </td>
           </tr>
-          <tr>
+        <?php } ?>
+          <!-- <tr>
             <td>4</td>
             <td>ลาพักผ่อน</td>
             <td>26 พฤศจิกายน 2561</td>
@@ -147,6 +214,9 @@
             <td>ลาพักผ่อน</td>
             <td>15 พฤศจิกายน 2561</td>
             <td>
+              <a href="#" title="ยกเลิกใบลา">
+                <i class="fas fa-ban"></i>
+              </a>
               <a href="#" title="แก้ไข">
                 <i class="far fa-edit"></i>
               </a>&nbsp;
@@ -154,13 +224,26 @@
                 <i class="far fa-trash-alt"></i>
               </a>
             </td>
-          </tr>
+          </tr> -->
         </tbody>
       </table>
     </div>
 
   </div>
 </div>
+<script src="assets/plugins/webshim-1.16.0/js-webshim/minified/polyfiller.js"></script>
+<script type="text/javascript">
+$(function() {
+  webshims.setOptions('forms-ext', {
+    replaceUI: 'auto',
+    types: 'number',
+    "number": {
+      "classes": "hide-inputbtns"
+    }
+  });
+  webshims.polyfill('forms-ext');
+});
+</script>
 <script type="text/javascript" src="assets/plugins/DataTables/datatables.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
@@ -222,5 +305,59 @@ $(document).ready(function() {
       accordionOn: ['xs', 'sm']
   });
 
+});
+</script>
+<script type="text/javascript">
+$(function() {
+
+    $("#btn_save").click(function() {
+      var formData = new FormData(document.getElementsByName('frm_leave')[0]); // yourForm: form selector
+
+      $.confirm({
+        theme: 'modern',
+        title: 'Confirm!',
+        type: 'orange',
+        icon: 'fas fa-exclamation',
+        content: 'คุณต้องการบันทึกการลา ใช่หรือไม่?',
+        buttons: {
+          btn1: {
+            text: 'ตกลง',
+            btnClass: 'btn-blue',
+            action: function() {
+              $.LoadingOverlay("show");
+              $.ajax({
+                type: "POST",
+                url: "leave_save.php", // where you wanna post
+                data: formData,
+                processData: false,
+                contentType: false,
+                enctype: 'multipart/form-data',
+                success: function(data) {
+                  var str = data.split(",")
+                  if (str[0].trim() == "success") {
+                    window.location = "index.php?inc=leave";
+                  } else {
+                    $.confirm({
+                      title: 'Error!',
+                      content: data,
+                      buttons: {
+                        ok: function() {
+                          $.LoadingOverlay("hide");
+                          // setTimeout(function() {
+                          //   location.reload();
+                          // }, 2000);
+                        }
+                      }
+                    });
+                  }
+                }
+              });
+            }
+          },
+          cancel: function() {
+          }
+        }
+      });
+    });
 });
 </script>

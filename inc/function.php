@@ -48,13 +48,20 @@ function _Tdates($d)
 		$month_name = array("","มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม");
 		return "วันที่ ".date("j",$d)." ".$month_name[date("n",$d)]." ".(date("Y",$d)+543);
 	}
-	function _TdatesNopre($d)
-		{
-			if(is_string($d)){$d=strtotime($d);}
+function _TdatesNopre($d)
+	{
+		if(is_string($d)){$d=strtotime($d);}
 
-			$month_name = array("","มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม");
-			return date("j",$d)." ".$month_name[date("n",$d)]." พ.ศ ".(date("Y",$d)+543);
-		}
+		$month_name = array("","มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม");
+		return date("j",$d)." ".$month_name[date("n",$d)]." พ.ศ ".(date("Y",$d)+543);
+	}
+function _TSdateNopre($d)
+	{
+		if(is_string($d)){$d=strtotime($d);}
+
+		$month_name = array("","ม.ค.", "ก.พ.", "มี.ค.", "เม.ย.", "พ.ค.", "มิ.ย.", "ก.ค.", "ส.ค.", "ก.ย.", "ต.ค.", "พ.ย.", "ธ.ค.");
+		return date("j",$d)." ".$month_name[date("n",$d)]." ".(date("Y",$d)+543);
+	}
 function _Tdates2($d)
 	{
 		if(is_string($d)){$d=strtotime($d);}
